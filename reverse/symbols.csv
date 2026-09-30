@@ -6679,3 +6679,4 @@ _tan,0x0062993A,CRT import thunk; retail target of the tan call in Rva005046B0Sc
 ??$__copy_ptrs@PAURva000B435F@@PAU1@@_STL@@YAPAURva000B435F@@PAU1@00ABU__false_type@0@@Z,0x002CF830,ICF twin of rowed Rva002CF830Copy at same address via assign call sites 0x000C08C4 0x000C08E4 same 12-byte copy to 0x000B6830
 ?allocate@?$allocator@VRva004E32F2@@@_STL@@QBEPAVRva004E32F2@@IPBX@Z,0x00395944,ICF twin of rowed B9534 allocate identical 28B via call at 0x00566AF9
 ?_M_clear@?$vector@VRva004E32F2@@V?$allocator@VRva004E32F2@@@_STL@@@_STL@@IAEXXZ,0x00565A24,vector Rva004E32F2 clear is ScrapStorage call site 0x00566B61 identical 30B shape
+?bfmeAccept@BfmeSinkA@@QAEXPAVBfmeFlagTarget@@@Z,0x00758CF0
