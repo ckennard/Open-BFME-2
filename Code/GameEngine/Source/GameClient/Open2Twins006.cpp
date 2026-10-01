@@ -131,3 +131,50 @@ void Gen_00881040::bfmeDescribe(BfmeFlagTarget *target)
 	m_bfmeSink->bfmeAccept(target);
 }
 
+class Open2Held8F75D0;
+
+typedef std::map<NameKeyType, Open2Held8F75D0 *, std::less<NameKeyType> > Open2Map8F75D0;
+
+class Open2Store8F75D0 : public SubsystemInterface, public Snapshot
+{
+public:
+	virtual ~Open2Store8F75D0();
+
+private:
+	Open2Map8F75D0 *m_map;
+};
+
+// @??1Open2Store8F75D0@@UAE@XZ 0x00739980
+Open2Store8F75D0::~Open2Store8F75D0()
+{
+	delete m_map;
+}
+
+class BfmeSinkB
+{
+public:
+	void bfmeAccept(BfmeFlagTarget *target);
+};
+
+class Gen_008F7650
+{
+public:
+	void bfmeDescribe(BfmeFlagTarget *target);
+
+private:
+	char m_bfmeHead[4];
+	BfmeSinkB *m_bfmeSink;
+};
+
+void Gen_008F7650::bfmeDescribe(BfmeFlagTarget *target)
+{
+	BfmeFlagPair flags;
+
+	flags.m_bfmeFirst = true;
+	flags.m_bfmeSecond = true;
+
+	target->bfmeDescribe(&flags);
+
+	m_bfmeSink->bfmeAccept(target);
+}
+

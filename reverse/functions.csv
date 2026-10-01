@@ -45047,3 +45047,6 @@ _FreeGame,,0x00606EE0,101,Code/GameEngine/Source/GameNetwork/GameSpy/gstats/gsta
 ?bfmeForwardWideC@BfmeWideForwardC@@QAE?AUBfmeWideResult@@HHHHH@Z,,0x00625610,57,Code/GameEngine/Source/Common/BfmeWideResultForward.cpp,matched,BFME1 near-miss donor repaired; b1 0x009F2960; member C to 10 per retail; callee pinned at 0x628770
 ?forward009F29A0@BfmeWideForward009F29A0@@QAE?AUBfmeWideResult@@HHH@Z,,0x00625650,51,Code/GameEngine/Source/Common/BfmeWideResultForward.cpp,matched,BFME1 near-miss donor repaired; b1 0x009F29A0; member C to 10 per retail; callee pinned at 0x628770
 ?bfmeForwardWideB@BfmeWideForwardB@@QAE?AUBfmeWideResult@@HHHH@Z,,0x00625690,54,Code/GameEngine/Source/Common/BfmeWideResultForward.cpp,matched,BFME1 near-miss donor repaired; b1 0x009F29E0; member C to 10 per retail; callee pinned at 0x628770
+??1Open2Store8F75D0@@UAE@XZ,,0x00739980,115,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,BFME1 donor Open2Twins006.cpp; b1 0x008F75D0; Subsystem base 12B
+?bfmeDescribe@Gen_008F7650@@QAEXPAVBfmeFlagTarget@@@Z,,0x00739A00,46,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,BFME1 donor S3InsertAndDescribe.cpp; b1 0x008F7650
+??_GOpen2Store8F75D0@@UAEPAXI@Z,,0x00739E40,30,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,scalar deleting dtor; b1 0x008F7890
