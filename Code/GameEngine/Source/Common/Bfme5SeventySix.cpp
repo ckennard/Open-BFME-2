@@ -201,3 +201,54 @@ int BfmeTaintManager::rva006C0840(int x, int y)
 {
 	return m_bfmeGrid->rva006C0E70(x, y);
 }
+
+struct BfmeFlagPair
+{
+	bool m_bfmeFirst;
+	bool m_bfmeSecond;
+};
+
+class BfmeFlagTarget
+{
+public:
+	virtual ~BfmeFlagTarget();
+	virtual void pad1();
+	virtual void pad2();
+	virtual void pad3();
+	virtual void pad4();
+	virtual void pad5();
+	virtual void pad6();
+	virtual void pad7();
+	virtual void pad8();
+	virtual void pad9();
+	virtual void bfmeDescribe(BfmeFlagPair *flags);
+};
+
+class BfmeSinkC
+{
+public:
+	void bfmeAccept(BfmeFlagTarget *target);
+};
+
+class Gen_006C0A20
+{
+public:
+	void bfmeDescribe(BfmeFlagTarget *target);
+
+private:
+	char m_bfmeHead[4];
+	BfmeSinkC *m_bfmeSink;
+};
+
+void Gen_006C0A20::bfmeDescribe(BfmeFlagTarget *target)
+{
+	BfmeFlagPair flags;
+
+	flags.m_bfmeFirst = true;
+	flags.m_bfmeSecond = true;
+
+	target->bfmeDescribe(&flags);
+
+	m_bfmeSink->bfmeAccept(target);
+}
+
