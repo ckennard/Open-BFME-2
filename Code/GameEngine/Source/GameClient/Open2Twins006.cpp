@@ -178,3 +178,23 @@ void Gen_008F7650::bfmeDescribe(BfmeFlagTarget *target)
 	m_bfmeSink->bfmeAccept(target);
 }
 
+class Open2Held9A2680;
+
+typedef std::map<NameKeyType, Open2Held9A2680 *, std::less<NameKeyType> > Open2Map9A2680;
+
+class Open2Store9A2680 : public SubsystemInterface, public Snapshot
+{
+public:
+	virtual ~Open2Store9A2680();
+
+private:
+	Open2Map9A2680 *m_map;
+};
+
+// @??1Open2Store9A2680@@UAE@XZ 0x00758310
+Open2Store9A2680::~Open2Store9A2680()
+{
+	delete m_map;
+}
+
+

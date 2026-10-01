@@ -45050,3 +45050,5 @@ _FreeGame,,0x00606EE0,101,Code/GameEngine/Source/GameNetwork/GameSpy/gstats/gsta
 ??1Open2Store8F75D0@@UAE@XZ,,0x00739980,115,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,BFME1 donor Open2Twins006.cpp; b1 0x008F75D0; Subsystem base 12B
 ?bfmeDescribe@Gen_008F7650@@QAEXPAVBfmeFlagTarget@@@Z,,0x00739A00,46,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,BFME1 donor S3InsertAndDescribe.cpp; b1 0x008F7650
 ??_GOpen2Store8F75D0@@UAEPAXI@Z,,0x00739E40,30,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,scalar deleting dtor; b1 0x008F7890
+??1Open2Store9A2680@@UAE@XZ,,0x00758310,115,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,BFME1 donor Open2Twins006.cpp; b1 0x009A2680; Subsystem base 12B
+??_GOpen2Store9A2680@@UAEPAXI@Z,,0x00758390,30,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,scalar deleting dtor; b1 0x009A2970
