@@ -45099,3 +45099,5 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ??1Rva004D7B93@@UAE@XZ,,0x004D7B93,5,Code/GameEngine/Source/Common/Thing/TrivialDerivedDtorThunks.cpp,matched,jmp thunk to pinned ObjectModule dtor 0x0049B47C; address from existing pin
 ??1Rva0040EDB@@UAE@XZ,,0x00040EDB,29,Code/Libraries/Source/WWVegas/WWLib/Rva0040EDBHandleDtors.cpp,matched,CloseHandle-owning dtor; address from existing pin; called by rowed ??_G 0x00041184
 ??1Rva0040FE5@@UAE@XZ,,0x00040FE5,31,Code/Libraries/Source/WWVegas/WWLib/Rva0040EDBHandleDtors.cpp,matched,DeleteCriticalSection subclass dtor tail-jumping to 0x00040EDB; address from existing pin
+??1Win32GameEngine@@UAE@XZ,,0x00041E9F,26,Code/GameEngine/Source/Main/Win32GameEngineDtor.cpp,matched,ZH Win32GameEngine dtor verbatim (SetErrorMode restore of +0x60 then GameEngine dtor); at existing opaque pin ??1Rva0041E9F
+??1Win32Mouse@@UAE@XZ,,0x000419E3,18,Code/GameEngineDevice/Source/Win32Device/GameClient/Win32Mouse_dtor.cpp,matched,ZH Win32Mouse dtor verbatim (TheWin32Mouse = NULL then Mouse dtor 0x001EE3DE); at existing opaque pin ??1Rva00419E3
