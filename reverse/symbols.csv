@@ -6687,3 +6687,4 @@ _tan,0x0062993A,CRT import thunk; retail target of the tan call in Rva005046B0Sc
 ?bfmeAccept@BfmeSinkC@@QAEXPAVBfmeFlagTarget@@@Z,0x006C0F50
 ?rva0028DAB9@Object@@AAEXXZ,0x0028DAB9
 ?rva00271BCC@Rva00271BCCOwner@@QAEXH_N@Z,0x00271BCC
+?push_back@?$list@PAVTeamPrototype@@V?$allocator@PAVTeamPrototype@@@_STL@@@_STL@@QAEXABQAVTeamPrototype@@@Z,0x002ADCC7
