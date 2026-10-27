@@ -41,16 +41,36 @@ private:
 
 extern GameLogic *TheGameLogic;
 
+class PolygonTrigger;
+
+// ZH Object.h TriggerInfo; retail strides the array by 8 and reads entered at
+// +4 and exited at +5.
+struct TriggerInfo
+{
+	PolygonTrigger *pTrigger;
+	unsigned char entered;
+	unsigned char exited;
+	unsigned char isInside;
+	unsigned char padding;
+};
+
 class Object
 {
+public:
+	Bool didEnter(PolygonTrigger *pTrigger);
+	Bool didExit(PolygonTrigger *pTrigger);
+
 protected:
 	Bool didEnterOrExit() const;
 
 private:
 	char m_pad00[4];
 	ThingTemplate *m_template;
-	char m_pad08[0x3F8 - 0x08];
+	char m_pad08[0x3C0 - 0x08];
+	TriggerInfo m_triggerInfo[7];
 	UnsignedInt m_enteredOrExitedFrame;
+	char m_pad3FC[0x43A - 0x3FC];
+	char m_numTriggerAreasActive;
 };
 
 Bool Object::didEnterOrExit() const
@@ -59,4 +79,34 @@ Bool Object::didEnterOrExit() const
 		return false;
 	UnsignedInt now = TheGameLogic->getFrame();
 	return (m_enteredOrExitedFrame == now || m_enteredOrExitedFrame == now - 1);
+}
+
+// ?didEnter@Object@@QAE_NPAVPolygonTrigger@@@Z @0x0028D718 (63B) and
+// ?didExit@Object@@QAE_NPAVPolygonTrigger@@@Z @0x0028D757 (63B): the donor's
+// ObjectFields.cpp bodies. BFME 2 drops their const. Both keep this in edx
+// across didEnterOrExit, which works only because that callee is in this TU.
+Bool Object::didEnter(PolygonTrigger *pTrigger)
+{
+	if (!didEnterOrExit())
+		return false;
+
+	for (int i = 0; i < m_numTriggerAreasActive; ++i)
+	{
+		if (m_triggerInfo[i].entered && m_triggerInfo[i].pTrigger == pTrigger)
+			return true;
+	}
+	return false;
+}
+
+Bool Object::didExit(PolygonTrigger *pTrigger)
+{
+	if (!didEnterOrExit())
+		return false;
+
+	for (int i = 0; i < m_numTriggerAreasActive; ++i)
+	{
+		if (m_triggerInfo[i].exited && m_triggerInfo[i].pTrigger == pTrigger)
+			return true;
+	}
+	return false;
 }
