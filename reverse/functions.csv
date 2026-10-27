@@ -45070,3 +45070,5 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ?newMap@TerrainLogic@@UAEX_N@Z,,0x00284290,61,Code/GameEngine/Source/GameLogic/Map/TerrainLogic_newMap.cpp,matched,ZH TerrainLogic::newMap waypoint-height loop; address from existing pin; tail call 0x00283E9C pinned opaque
 ?update@ProneUpdate@@UAE?AW4UpdateSleepTime@@XZ,,0x0049FFA0,25,Code/GameEngine/Source/GameLogic/Object/Update/ProneUpdate.cpp,matched,ZH ProneUpdate::update verbatim; interface this-adjust; follows rowed ctor 0x0049FF06
 ?goProne@ProneUpdate@@QAEXPBVDamageInfo@@@Z,,0x0049FFB9,62,Code/GameEngine/Source/GameLogic/Object/Update/ProneUpdate.cpp,matched,ZH ProneUpdate::goProne verbatim; address from existing pin
+?disableRadar@Player@@QAEXXZ,,0x002AAA65,148,Code/GameEngine/Source/Common/RTS/Player_hasRadar.cpp,matched,ZH Player::disableRadar; address from existing pin; shares TU with hasRadar for retail ecx reuse
+?enableRadar@Player@@QAEXXZ,,0x002AAAF9,148,Code/GameEngine/Source/Common/RTS/Player_hasRadar.cpp,matched,ZH Player::enableRadar; address from existing pin; shares TU with hasRadar for retail ecx reuse
