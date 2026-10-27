@@ -45053,3 +45053,6 @@ _FreeGame,,0x00606EE0,101,Code/GameEngine/Source/GameNetwork/GameSpy/gstats/gsta
 ??1Open2Store9A2680@@UAE@XZ,,0x00758310,115,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,BFME1 donor Open2Twins006.cpp; b1 0x009A2680; Subsystem base 12B
 ??_GOpen2Store9A2680@@UAEPAXI@Z,,0x00758390,30,Code/GameEngine/Source/GameClient/Open2Twins006.cpp,matched,scalar deleting dtor; b1 0x009A2970
 ?bfmeDescribe@Gen_006C0A20@@QAEXPAVBfmeFlagTarget@@@Z,,0x006C0A20,46,Code/GameEngine/Source/Common/Bfme5SeventySix.cpp,matched,TaintManager describe body; sibling of 0x00625530 and 0x00739A00
+_Rva00858960Join,,0x00699F20,521,Code/GameEngine/Source/GameNetwork/GameSpy/peer/peerMainBlockingOperations.c,matched,BFME1 donor Open-BFME-1 071013b3 peerMainBlockingOperations.c b1 0x00858960; static with peer in EAX from both wrappers
+_peerJoinStagingRoomA,,0x0069A130,40,Code/GameEngine/Source/GameNetwork/GameSpy/peer/peerMainBlockingOperations.c,matched,BFME1 donor b1 0x00858B70 (ICF twin); name from the 0x0038F579 caller matching ZH PeerThread peerJoinStagingRoom args
+_Rva00858BA0JoinChannel,,0x0069A160,40,Code/GameEngine/Source/GameNetwork/GameSpy/peer/peerMainBlockingOperations.c,matched,BFME1 donor b1 0x00858BA0; name carried from donor - no BFME2 caller names it

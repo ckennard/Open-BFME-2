@@ -1072,6 +1072,120 @@ void peerJoinTitleRoomA(PEER peer, const char *password, void *callback,
 	}
 }
 
+unsigned int SBServerGetPublicInetAddress(void *server);
+unsigned int SBServerGetPrivateInetAddress(void *server);
+int SBServerHasPrivateAddress(void *server);
+unsigned short SBServerGetPrivateQueryPort(void *server);
+unsigned short SBServerGetPublicQueryPort(void *server);
+void piMangleStagingRoom(char *room, const char *title, unsigned int publicIP,
+	unsigned int privateIP, unsigned short port);
+void *piSBCloneServer(void *server);
+
+// Ported from the BFME 1 donor (Open-BFME-1 071013b3, same file). The two
+// wrappers below are this helper's only callers, so VC7.1 passes peer in EAX.
+static __declspec(noinline) void Rva00858960Join(PEER peer, void *server,
+	const char *channel, const char *password, void *callback, void *param,
+	int blocking)
+{
+	piConnection *connection = (piConnection *)peer;
+	int success = 1;
+	int result = 10;
+	char room[257];
+	unsigned int publicIP;
+	unsigned int privateIP;
+	unsigned short port;
+	int opID = piGetNextID(peer);
+
+	if (!password)
+		password = "";
+	if (!connection->title[0])
+	{
+		success = 0;
+		result = 6;
+	}
+	if (success && !connection->connected)
+	{
+		success = 0;
+		result = 7;
+	}
+	if (success && (connection->enteringRoom[2] || connection->inRoom[2]))
+	{
+		success = 0;
+		result = 5;
+	}
+	if (success && connection->autoMatchStatus &&
+		connection->autoMatchStatus != 5)
+	{
+		success = 0;
+		result = 8;
+	}
+	if (success)
+	{
+		if (server)
+		{
+			publicIP = SBServerGetPublicInetAddress(server);
+			privateIP = SBServerGetPrivateInetAddress(server);
+			port = SBServerHasPrivateAddress(server) ?
+				SBServerGetPrivateQueryPort(server) :
+				SBServerGetPublicQueryPort(server);
+			if (!publicIP)
+				goto failed;
+		}
+		else if (!channel || !channel[0])
+			success = 0;
+	}
+	if (success)
+	{
+		piStopHosting(peer, 1);
+		if (server)
+		{
+			piMangleStagingRoom(room, connection->title, publicIP, privateIP,
+				port);
+			channel = room;
+		}
+		if (!piNewJoinRoomOperation(peer, 2, channel, password, callback,
+				param, opID))
+			success = 0;
+		if (success && server)
+			connection->hostServer = piSBCloneServer(server);
+	}
+	if (!success)
+	{
+failed:
+		piAddJoinRoomCallback(peer, 0, result, 2, callback, param, opID);
+	}
+
+	if (blocking)
+	{
+		do
+		{
+			msleep(1);
+			piThink(peer, opID);
+		}
+		while (!piIsOperationFinished(peer, opID) ||
+			!piIsCallbackFinished(peer, opID));
+
+		if (connection->shutdown && connection->callbackDepth == 0)
+			peerShutdown(peer);
+	}
+}
+
+// Identity from the caller at 0x0038F579, which pushes the ZH PeerThread
+// peerJoinStagingRoom(peer, server, password, joinRoomCallback, this, ...)
+// argument list.
+void peerJoinStagingRoomA(PEER peer, void *server, const char *password,
+	void *callback, void *param, int blocking)
+{
+	Rva00858960Join(peer, server, 0, password, callback, param, blocking);
+}
+
+// Name carried from the BFME 1 donor; no BFME 2 caller or string names it.
+void Rva00858BA0JoinChannel(PEER peer, const char *channel,
+	const char *password, void *callback, void *param, int blocking)
+{
+	Rva00858960Join(peer, 0, channel, password, callback, param, blocking);
+}
+
 void peerCreateStagingRoomWithSocketA(PEER peer, const char *name,
 	int maxPlayers, const char *password, unsigned int socket,
 	unsigned short port, void *callback, void *param, int blocking)
