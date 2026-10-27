@@ -1002,6 +1002,39 @@ void peerJoinGroupRoom(PEER peer, int groupID, void *callback, void *param,
 	}
 }
 
+int piNewAuthenticateCDKeyOperation(PEER peer, const char *cdkey,
+	void *callback, void *param, int opID);
+void piAddAuthenticateCDKeyCallback(PEER peer, int result,
+	const char *message, void *callback, void *param, int opID);
+
+void peerAuthenticateCDKey(PEER peer, const char *cdkey, void *callback,
+	void *param, int blocking)
+{
+	piConnection *connection = (piConnection *)peer;
+	int success = 1;
+	int opID = piGetNextID(peer);
+
+	if (!piNewAuthenticateCDKeyOperation(peer, cdkey, callback, param, opID))
+		success = 0;
+	if (!success)
+		piAddAuthenticateCDKeyCallback(peer, 0,
+			"Error starting CD Key check", callback, param, opID);
+
+	if (blocking)
+	{
+		do
+		{
+			msleep(1);
+			piThink(peer, opID);
+		}
+		while (!piIsOperationFinished(peer, opID) ||
+			!piIsCallbackFinished(peer, opID));
+
+		if (connection->shutdown && connection->callbackDepth == 0)
+			peerShutdown(peer);
+	}
+}
+
 void peerJoinTitleRoomA(PEER peer, const char *password, void *callback,
 	void *param, int blocking)
 {
