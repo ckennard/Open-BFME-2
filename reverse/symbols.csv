@@ -6713,3 +6713,4 @@ _tan,0x0062993A,CRT import thunk; retail target of the tan call in Rva005046B0Sc
 ??1Rva0045D137Vector@@QAE@XZ,0x0045D137
 ??1Rva0007FAB3String@@QAE@XZ,0x0007FAB3
 ??1Rva002F0B52Member@@QAE@XZ,0x002F0B52
+?rva00282CFB@TerrainLogic@@QAEXPBUCoord3D@@MH@Z,0x00282CFB
