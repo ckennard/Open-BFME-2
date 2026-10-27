@@ -6700,3 +6700,4 @@ _tan,0x0062993A,CRT import thunk; retail target of the tan call in Rva005046B0Sc
 ?notifyOfCompletedSpecialPower@ScriptEngine@@QAEXHABVAsciiString@@W4ObjectID@@@Z,0x00357EDF
 ?push_back@NameCRCObjectIDPairList@@QAEXABUNameCRCObjectIDPair@@@Z,0x004DE74D
 ?rva0021857E@FontLibrary@@AAEPAVGameFont@@PBVAsciiString@@M_NH@Z,0x0021857E
+?isPositionalAudio@AudioEventRTS@@QBE_NXZ,0x002D9C37
