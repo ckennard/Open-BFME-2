@@ -45062,3 +45062,4 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ?didEnter@Object@@QAE_NPAVPolygonTrigger@@@Z,,0x0028D718,63,Code/GameEngine/Source/GameLogic/Object/ObjectDidEnterOrExit.cpp,matched,BFME1 donor ObjectFields.cpp didEnter; address from existing pin; calls rowed didEnterOrExit
 ?didExit@Object@@QAE_NPAVPolygonTrigger@@@Z,,0x0028D757,63,Code/GameEngine/Source/GameLogic/Object/ObjectDidEnterOrExit.cpp,matched,BFME1 donor ObjectFields.cpp didExit; address from existing pin; calls rowed didEnterOrExit
 ?onDestroy@Object@@QAEXXZ,,0x0028FC1D,98,Code/GameEngine/Source/GameLogic/Object/ObjectOnDestroy.cpp,matched,ZH/BFME1 Object::onDestroy shape; address from existing pin; two opaque callees pinned by address
+??1ImageCollection@@UAE@XZ,,0x002D9283,115,Code/GameEngine/Source/GameClient/System/ImageCollectionDtor.cpp,matched,ZH Image.cpp ImageCollection dtor; address from audited pin; ::delete gives retail flag-0 vdtor plus global delete
