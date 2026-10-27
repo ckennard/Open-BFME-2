@@ -45110,3 +45110,8 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ??1W3DSmudgeManager@@UAE@XZ,,0x000A6454,56,Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DSmudgeManagerDestructor.cpp,matched,ZH W3DSmudgeManager dtor verbatim (ReleaseResources then SmudgeManager dtor); at existing opaque pin ??1Rva00A6454
 ??1BinkVideoPlayer@@UAE@XZ,,0x0009111B,56,Code/GameEngineDevice/Source/VideoDevice/Bink/BinkVideoPlayerDtor.cpp,matched,ZH BinkVideoPlayer dtor verbatim (deinit then VideoPlayer dtor); at existing opaque pin ??1Rva009111B
 ??1Rva0072AED@@UAE@XZ,,0x00072AED,56,Code/Libraries/Source/WWVegas/WW3D2/Rva0072AEDRefHolderDtor.cpp,matched,opaque RefCountClass holder dtor at existing pin; base vtable 0x00BC650C
+??1Rva00B6DD2@@UAE@XZ,,0x000B6DD2,58,Code/GameEngine/Source/Common/OpaqueSmallDtors2.cpp,matched,opaque element-array plus Snapshot dtor at existing pin
+??1Rva00104DB0@@UAE@XZ,,0x00104DB0,54,Code/GameEngine/Source/Common/OpaqueSmallDtors2.cpp,matched,opaque Render2DSentenceClass-member dtor at existing pin
+??1Rva00102188@@UAE@XZ,,0x00102188,54,Code/GameEngine/Source/Common/OpaqueSmallDtors2.cpp,matched,opaque two-member dtor at existing pin; member dtor 0x000B0254 pinned
+??1Rva00FF4D6@@UAE@XZ,,0x000FF4D6,55,Code/GameEngine/Source/Common/OpaqueSmallDtors2.cpp,matched,opaque member-call plus AsciiString dtor at existing pin; callee 0x000FF448 pinned
+??1Rva00B9AC2@@UAE@XZ,,0x000B9AC2,61,Code/GameEngine/Source/Common/OpaqueSmallDtors2.cpp,matched,opaque tree-hint release plus AsciiString dtor at existing pin
