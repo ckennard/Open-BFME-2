@@ -45101,3 +45101,9 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ??1Rva0040FE5@@UAE@XZ,,0x00040FE5,31,Code/Libraries/Source/WWVegas/WWLib/Rva0040EDBHandleDtors.cpp,matched,DeleteCriticalSection subclass dtor tail-jumping to 0x00040EDB; address from existing pin
 ??1Win32GameEngine@@UAE@XZ,,0x00041E9F,26,Code/GameEngine/Source/Main/Win32GameEngineDtor.cpp,matched,ZH Win32GameEngine dtor verbatim (SetErrorMode restore of +0x60 then GameEngine dtor); at existing opaque pin ??1Rva0041E9F
 ??1Win32Mouse@@UAE@XZ,,0x000419E3,18,Code/GameEngineDevice/Source/Win32Device/GameClient/Win32Mouse_dtor.cpp,matched,ZH Win32Mouse dtor verbatim (TheWin32Mouse = NULL then Mouse dtor 0x001EE3DE); at existing opaque pin ??1Rva00419E3
+??1Rva005333F@@UAE@XZ,,0x0005333F,19,Code/GameEngine/Source/Common/OpaqueSmallDtors1.cpp,matched,opaque ref-release dtor at existing pin; rowed deleting dtor 0x00053FB6
+??1Rva006DD51@@UAE@XZ,,0x0006DD51,18,Code/GameEngine/Source/Common/OpaqueSmallDtors1.cpp,matched,opaque 2-vptr dtor tail-calling rowed CollectionClass dtor; existing pin
+??1Rva0084CEF@@UAE@XZ,,0x00084CEF,18,Code/GameEngine/Source/Common/OpaqueSmallDtors1.cpp,matched,opaque member-call plus clears dtor at existing pin; callee 0x00083E87 pinned
+??1Rva005109D@@UAE@XZ,,0x0005109D,22,Code/GameEngine/Source/Common/OpaqueSmallDtors1.cpp,matched,opaque SubsystemInterface plus Snapshot second-base dtor at existing pin
+??1Rva0051D93@@UAE@XZ,,0x00051D93,29,Code/GameEngine/Source/Common/OpaqueSmallDtors1.cpp,matched,opaque dtor over rowed BfmeStringTailRecord144 plus +0x88 sub-object; existing pin
+??1Rva0054D2CF@@UAE@XZ,,0x0054D2CF,14,Code/GameEngine/Source/Common/OpaqueSmallDtors1.cpp,matched,opaque vptr plus +4 member tail dtor at existing pin; member dtor 0x0054CC1B pinned
