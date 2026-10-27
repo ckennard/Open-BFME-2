@@ -6691,3 +6691,5 @@ _tan,0x0062993A,CRT import thunk; retail target of the tan call in Rva005046B0Sc
 ?rva00285B66PointInPolygon@@YA_NPBUICoord2D@@PBURva00285B66Polygon@@@Z,0x00285B66
 ?rva0039ED9C@TeamPrototype@@QBEHP6AXPAVObject@@PAX@Z1@Z,0x0039ED9C
 ?rva00283E9C@TerrainLogic@@AAEXXZ,0x00283E9C
+?startProneEffects@ProneUpdate@@IAEXXZ,0x0049FF50
+?stopProneEffects@ProneUpdate@@IAEXXZ,0x0049FF78
