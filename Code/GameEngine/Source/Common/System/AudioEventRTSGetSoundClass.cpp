@@ -9,7 +9,9 @@
 
 struct AudioEventInfo
 {
-	unsigned char m_pad00[0xB0];
+	unsigned char m_pad00[0x48];
+	unsigned char m_type;
+	unsigned char m_pad49[0xB0 - 0x49];
 	unsigned int m_soundClass;
 };
 
@@ -23,6 +25,9 @@ private:
 	void *m_vftable;
 	void *m_filenameToLoad;
 	const AudioEventInfo *m_eventInfo;
+	char m_pad0C[0x34 - 0x0C];
+	unsigned int m_ownerID;
+	int m_ownerType;
 };
 
 unsigned int AudioEventRTS::getSoundClass(void) const
@@ -47,4 +52,61 @@ unsigned int AudioEventRTS::getSoundClass(void) const
 	default:
 		return 0;
 	}
+}
+
+// ?isPositionalAudio@AudioEventRTS@@QBE_NXZ @0x002D9C37 (67B). The donor's
+// owner-type test, preceded in BFME 2 by a class gate: only class 2 with
+// type bit 2 set, or class 3, reaches the owner test; classes 4 and 5 (tested
+// explicitly) and every other class are not positional. Owner types 1..5 need a live owner ID.
+bool AudioEventRTS::isPositionalAudio() const
+{
+	if (m_eventInfo)
+	{
+		switch (m_eventInfo->m_soundClass)
+		{
+		case 2:
+			if ((m_eventInfo->m_type & 2) == 0)
+				goto not_positional;
+			break;
+		case 3:
+			break;
+		case 4:
+			goto not_positional;
+		case 5:
+			goto not_positional;
+		default:
+			goto not_positional;
+		}
+	}
+
+	switch (m_ownerType)
+	{
+	case 0:
+		return true;
+	case 1:
+		if (m_ownerID == 0)
+			goto not_positional;
+		return true;
+	case 2:
+		if (m_ownerID == 0)
+			goto not_positional;
+		return true;
+	case 3:
+		if (m_ownerID == 0)
+			goto not_positional;
+		return true;
+	case 4:
+		if (m_ownerID == 0)
+			goto not_positional;
+		return true;
+	case 5:
+		if (m_ownerID == 0)
+			goto not_positional;
+		return true;
+	default:
+		goto not_positional;
+	}
+
+not_positional:
+	return false;
 }
