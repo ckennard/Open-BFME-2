@@ -6696,3 +6696,4 @@ _tan,0x0062993A,CRT import thunk; retail target of the tan call in Rva005046B0Sc
 ?okToPlayRadarEdgeSound@Player@@AAE_NXZ,0x002AA04C
 ??0BfmeStringTailRecord144@@QAE@ABVAsciiString@@H@Z,0x002D97D6
 ?setPlayerIndex@BfmeStringTailRecord144@@QAEXH@Z,0x0033F15D
+?reset@Mouse@@UAEXXZ,0x001EE4DC

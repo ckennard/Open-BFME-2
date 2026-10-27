@@ -45072,3 +45072,4 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ?goProne@ProneUpdate@@QAEXPBVDamageInfo@@@Z,,0x0049FFB9,62,Code/GameEngine/Source/GameLogic/Object/Update/ProneUpdate.cpp,matched,ZH ProneUpdate::goProne verbatim; address from existing pin
 ?disableRadar@Player@@QAEXXZ,,0x002AAA65,148,Code/GameEngine/Source/Common/RTS/Player_hasRadar.cpp,matched,ZH Player::disableRadar; address from existing pin; shares TU with hasRadar for retail ecx reuse
 ?enableRadar@Player@@QAEXXZ,,0x002AAAF9,148,Code/GameEngine/Source/Common/RTS/Player_hasRadar.cpp,matched,ZH Player::enableRadar; address from existing pin; shares TU with hasRadar for retail ecx reuse
+?reset@Win32Mouse@@UAEXXZ,,0x000419F5,17,Code/GameEngineDevice/Source/Win32Device/GameClient/Win32Mouse_reset.cpp,matched,ZH Win32Mouse::reset extends Mouse::reset (pinned 0x001EE4DC); address from existing pin (W3DMouse::reset caller)
