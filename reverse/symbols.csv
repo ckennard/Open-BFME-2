@@ -6685,3 +6685,5 @@ _tan,0x0062993A,CRT import thunk; retail target of the tan call in Rva005046B0Sc
 ??1?$_Rb_tree@W4NameKeyType@@U?$pair@$$CBW4NameKeyType@@PAVOpen2Held8F75D0@@@_STL@@U?$_Select1st@U?$pair@$$CBW4NameKeyType@@PAVOpen2Held8F75D0@@@_STL@@@3@U?$less@W4NameKeyType@@@3@V?$allocator@U?$pair@$$CBW4NameKeyType@@PAVOpen2Held8F75D0@@@_STL@@@3@@_STL@@QAE@XZ,0x0073E3F0
 ??1?$_Rb_tree@W4NameKeyType@@U?$pair@$$CBW4NameKeyType@@PAVOpen2Held9A2680@@@_STL@@U?$_Select1st@U?$pair@$$CBW4NameKeyType@@PAVOpen2Held9A2680@@@_STL@@@3@U?$less@W4NameKeyType@@@3@V?$allocator@U?$pair@$$CBW4NameKeyType@@PAVOpen2Held9A2680@@@_STL@@@3@@_STL@@QAE@XZ,0x0075A080
 ?bfmeAccept@BfmeSinkC@@QAEXPAVBfmeFlagTarget@@@Z,0x006C0F50
+?rva0028DAB9@Object@@AAEXXZ,0x0028DAB9
+?rva00271BCC@Rva00271BCCOwner@@QAEXH_N@Z,0x00271BCC
