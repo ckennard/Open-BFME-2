@@ -3,7 +3,7 @@
 // DataChunkInput readDict: reads u16 len, Dict d(len), loops reading keyAndType
 // via readInt, getName via m_contents, nameToKey via generator, switches on
 // type calling readByte/readInt/readReal/rva ascii/rva unicode plus set calls,
-// throws DEAD0005 via CxxThrow on bad type, returns Dict by value.
+// throws ERROR_CORRUPT_FILE_FORMAT via CxxThrow on bad type, returns Dict by value.
 // Evidence: chain lane calls just-landed rva003075A3 plus sibling ascii,
 // donor BFME1 DataChunk.cpp readDict, callers 7 including ParseWorldDict.
 
@@ -11,6 +11,13 @@ typedef int Int;
 typedef unsigned int UnsignedInt;
 typedef unsigned short UnsignedShort;
 typedef bool Bool;
+
+// Common/Errors.h. Retail's throw info at 0x00CFEEE4 names .?AW4ErrorCode@@,
+// so the throw must carry the enum type, not int.
+enum ErrorCode
+{
+    ERROR_CORRUPT_FILE_FORMAT = 0xdead0005
+};
 
 template <typename T>
 class StringBase
@@ -176,7 +183,7 @@ Dict DataChunkInput::readDict(void)
                 break;
             default:
             {
-                throw (int)0xdead0005;
+                throw ERROR_CORRUPT_FILE_FORMAT;
                 break;
             }
         }
