@@ -626,6 +626,59 @@ void peerGetPlayerGlobalKeysA(PEER peer, const char *nick, int num,
 	}
 }
 
+// OPAQUE: BFME 1 0x008593A0, BFME 2 0x0069A960 (217 B). Ported from the
+// BFME 1 donor (Open-BFME-1 071013b3). IDENTITY IS NOT RECOVERED: no caller, string
+// or vtable names the holder, so the name is derived from its BFME 1 address.
+//
+// WHAT THE BYTES SHOW. The body sits between _peerGetPlayerGlobalKeysA
+// and _peerGetRoomKeysA (BFME 1 0x008592E0 / 0x00859480, BFME 2 0x0069A8A0 /
+// 0x0069AA40) and shares their shape:
+// opID = piGetNextID(peer); return unless [peer+0x48] (connected); return
+// unless enteringRoom[arg2] (displacement +0x384) or inRoom[arg2] (+0x390).
+// The target passed to piNewGetGlobalKeysOperation is
+// lea [arg2*0x101 + peer + 0x80] = connection->room[arg2] (room[3][257] at
+// +0x80, stride 0x101). The failure path pushes the empty string at
+// 0x0107301C then six zero args into piAddGetGlobalKeysCallback. The
+// blocking tail polls PeerOperationsComplete + piIsCallbackFinished, then
+// calls peerShutdown when shutdown && !callbackDepth. Seven __cdecl args;
+// arg3/arg4 order (int num, const char **keys) follows
+// piNewGetGlobalKeysOperation. Probed EXACT (modulo relocation slots).
+//
+// _dup_008593A0
+void dup_008593A0(PEER peer, int roomType, int num, const char **keys,
+	void *callback, void *param, int blocking)
+{
+	piConnection *connection = (piConnection *)peer;
+	int success = 1;
+	int opID = piGetNextID(peer);
+
+	if (!connection->connected)
+		return;
+	if (!connection->enteringRoom[roomType] && !connection->inRoom[roomType])
+		return;
+
+	if (!piNewGetGlobalKeysOperation(peer, connection->room[roomType], num,
+			keys, callback, param, opID))
+		success = 0;
+	if (!success)
+		piAddGetGlobalKeysCallback(peer, 0, "", 0, 0, 0, callback, param,
+			opID);
+
+	if (blocking)
+	{
+		do
+		{
+			msleep(1);
+			bfmePiThinkFromEsi(opID);
+		}
+		while (!PeerOperationsComplete(peer, opID) ||
+			!piIsCallbackFinished(peer, opID));
+
+		if (connection->shutdown && connection->callbackDepth == 0)
+			peerShutdown(peer);
+	}
+}
+
 void peerConnectA(PEER peer, const char *nick, int profileID,
 	void *nickErrorCallback, void *connectCallback, void *param, int blocking)
 {
