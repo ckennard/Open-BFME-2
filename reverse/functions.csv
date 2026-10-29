@@ -45143,3 +45143,6 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ?attach@Rva002E2903Player@@QAEXPAX@Z,,0x002E0648,32,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,forward arg to +0x4C member then assign +0x48 string
 ?Rva00199FA5TeardownMeshMatDescRenderers@@YA_NPAVMeshMatDescClass@@@Z,,0x00199FA5,39,Code/Libraries/Source/WWVegas/WW3D2/MeshModelTeardownHelpers.cpp,matched,guarded clear of two material pass slots; returns whether +0xC was set
 ?DeleteModelGapFiller@Rva00DF6F94GapFillerContext@@QAEXPAVMeshModelClass@@@Z,,0x001732E2,40,Code/Libraries/Source/WWVegas/WW3D2/MeshModelTeardownHelpers.cpp,matched,delete model +0xBC gap filler (dtor 0x18C57C) and null the slot
+?bfmeHas1026@BfmeTab1026@@QAEDHH@Z,,0x00362437,42,Code/GameEngine/Source/Common/OpaqueSmallHelpers9.cpp,matched,null guard then query 0x3618B9 on object +4 field and controlling player
+??4BfmeAssignRecord28@@QAEAAU0@ABU0@@Z,,0x003F6388,43,Code/GameEngine/Source/Common/OpaqueSmallHelpers9.cpp,matched,memberwise assign of dword plus 12-byte member plus vector<Int>
+?rva005DE926@Rva005DE5B5@@QAEXXZ,,0x005DE926,44,Code/GameEngine/Source/Common/OpaqueSmallHelpers9.cpp,matched,range call over +4 sequence then count call; clears +0x14 flag
