@@ -45141,3 +45141,5 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ?clear@Rva005F7736@@QAEXXZ,,0x005F7736,26,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,detach and delete pointer at +0 (element dtor 0x5F75C9)
 ?clear@Rva005FA146@@QAEXXZ,,0x005FA146,26,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,detach and delete pointer at +0 (element dtor 0x5F9877)
 ?attach@Rva002E2903Player@@QAEXPAX@Z,,0x002E0648,32,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,forward arg to +0x4C member then assign +0x48 string
+?Rva00199FA5TeardownMeshMatDescRenderers@@YA_NPAVMeshMatDescClass@@@Z,,0x00199FA5,39,Code/Libraries/Source/WWVegas/WW3D2/MeshModelTeardownHelpers.cpp,matched,guarded clear of two material pass slots; returns whether +0xC was set
+?DeleteModelGapFiller@Rva00DF6F94GapFillerContext@@QAEXPAVMeshModelClass@@@Z,,0x001732E2,40,Code/Libraries/Source/WWVegas/WW3D2/MeshModelTeardownHelpers.cpp,matched,delete model +0xBC gap filler (dtor 0x18C57C) and null the slot
