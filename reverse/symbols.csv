@@ -6781,3 +6781,6 @@ _tan,0x0062993A,CRT import thunk; retail target of the tan call in Rva005046B0Sc
 ??0DamageInfo@@QAE@XZ,0x00263895
 ?attemptDamage@Object@@QAEXPAVDamageInfo@@@Z,0x0029848E
 ?rva002975AC@Object@@AAEXPAVDamageInfo@@@Z,0x002975AC
+?rva00296065@Object@@AAEXPAVDamageInfo@@@Z,0x00296065
+?rva00290FC9@Object@@AAEHXZ,0x00290FC9
+?rva0027295B@Rva0027295BOwner@@QAEXH@Z,0x0027295B

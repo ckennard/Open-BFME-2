@@ -6,7 +6,14 @@
 // to 1.0; then a positive +0x28 queues a copy of the whole 0x7C-byte info on
 // the object's list at +0x440 (rowed STLport list<BfmePod124>::push_back --
 // BfmePod124 is that 124-byte record) and anything else goes straight to the
-// unnamed handler at 0x002975AC. The status bit's name, the +0x28 field and
+// unnamed handler at 0x002975AC.
+//
+// That handler (0x002975AC, 102 bytes): unless flag bit 0 at +0x438 is set,
+// the body module at +0x254 gets the info through its first virtual slot
+// (ZH's BodyModuleInterface::attemptDamage); then the info goes to 0x00296065
+// when the flag is clear or the info's +0x40 float is positive; finally, if
+// the +0x84 object exists and has its +0x43C byte set, 0x0027295B is called
+// on it with the result of 0x00290FC9 on this. The status bit's name, the +0x28 field and
 // the list's purpose are not proven; names are descriptive or address-derived.
 
 enum ObjectStatusTypes
@@ -18,7 +25,9 @@ struct BfmePod124
 {
 	char m_pad00[0x28];
 	float m_28;
-	char m_pad2C[0x50];
+	char m_pad2C[0x14];
+	float m_40;
+	char m_pad44[0x38];
 };
 
 class DamageInfo : public BfmePod124
@@ -37,6 +46,20 @@ namespace _STL
 	};
 }
 
+class BodyModuleInterface
+{
+public:
+	virtual void attemptDamage(DamageInfo *damageInfo);
+};
+
+class Rva0027295BOwner
+{
+public:
+	void rva0027295B(int value);
+	char m_pad[0x43C];
+	bool m_43C;
+};
+
 class Object
 {
 public:
@@ -44,9 +67,32 @@ public:
 	void attemptDamage(DamageInfo *damageInfo);
 private:
 	void rva002975AC(DamageInfo *damageInfo);
-	char m_pad[0x440];
+	void rva00296065(DamageInfo *damageInfo);
+	int rva00290FC9();
+	char m_pad000[0x84];
+	Rva0027295BOwner *m_84;
+	char m_pad088[0x254 - 0x88];
+	BodyModuleInterface *m_bodyModule;
+	char m_pad258[0x438 - 0x258];
+	unsigned char m_438;
+	char m_pad439[7];
 	_STL::list<BfmePod124> m_queuedDamage;
 };
+
+void Object::rva002975AC(DamageInfo *damageInfo)
+{
+	if (!(m_438 & 1))
+	{
+		BodyModuleInterface *body = m_bodyModule;
+		if (body)
+			body->attemptDamage(damageInfo);
+	}
+	if (!(m_438 & 1) || damageInfo->m_40 > 0.0f)
+		rva00296065(damageInfo);
+	Rva0027295BOwner *owner = m_84;
+	if (owner && owner->m_43C)
+		owner->rva0027295B(rva00290FC9());
+}
 
 void Object::attemptDamage(DamageInfo *damageInfo)
 {
