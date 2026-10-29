@@ -45134,3 +45134,10 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ??1Rva000E9BAC@@UAE@XZ,,0x000E9BAC,99,Code/GameEngine/Source/Common/OpaqueSmallDtors7.cpp,matched,opaque dtor; 0x40 record array and member at 0x4FB60
 ??1Rva00A8E0A@@UAE@XZ,,0x000A8E0A,111,Code/GameEngine/Source/Common/OpaqueSmallDtors7.cpp,matched,opaque SEH dtor vptr 0xBC93B0; audio notify then member dtors
 ??1Rva006ED6F@@UAE@XZ,,0x0006ED6F,116,Code/GameEngine/Source/Common/OpaqueSmallDtors7.cpp,matched,opaque scene dtor; removes and releases render object at +0x114
+??1BfmeNodeZ@@QAE@XZ,,0x003B3F5E,8,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,member at +4 destroyed via tail jump to 0x3B35B1
+?rva000A8AC0@MilesStreamRef@@QAEXXZ,,0x000A8AC0,12,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,null-guarded tail call 0x10FB64
+?rva000A8B4B@MilesStreamRef@@QAEXI@Z,,0x000A8B4B,14,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,null-guarded tail call 0x10FEF3 with one dword
+??1Rva002572D7Member@@QAE@XZ,,0x002572D7,23,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,cleanup 0x256F84 then free buffer at +0
+?clear@Rva005F7736@@QAEXXZ,,0x005F7736,26,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,detach and delete pointer at +0 (element dtor 0x5F75C9)
+?clear@Rva005FA146@@QAEXXZ,,0x005FA146,26,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,detach and delete pointer at +0 (element dtor 0x5F9877)
+?attach@Rva002E2903Player@@QAEXPAX@Z,,0x002E0648,32,Code/GameEngine/Source/Common/OpaqueSmallHelpers8.cpp,matched,forward arg to +0x4C member then assign +0x48 string
