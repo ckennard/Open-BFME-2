@@ -45146,3 +45146,11 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ?bfmeHas1026@BfmeTab1026@@QAEDHH@Z,,0x00362437,42,Code/GameEngine/Source/Common/OpaqueSmallHelpers9.cpp,matched,null guard then query 0x3618B9 on object +4 field and controlling player
 ??4BfmeAssignRecord28@@QAEAAU0@ABU0@@Z,,0x003F6388,43,Code/GameEngine/Source/Common/OpaqueSmallHelpers9.cpp,matched,memberwise assign of dword plus 12-byte member plus vector<Int>
 ?rva005DE926@Rva005DE5B5@@QAEXXZ,,0x005DE926,44,Code/GameEngine/Source/Common/OpaqueSmallHelpers9.cpp,matched,range call over +4 sequence then count call; clears +0x14 flag
+??1Rva002075F3Map@@QAE@XZ,,0x002075F3,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206EC7 then inline header free
+??1Rva00207630Map@@QAE@XZ,,0x00207630,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206EF0 then inline header free
+??1Rva0020766DMap@@QAE@XZ,,0x0020766D,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206F19 then inline header free
+??1Rva002076AAMap@@QAE@XZ,,0x002076AA,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206F42 then inline header free
+??1Rva002076E7Map@@QAE@XZ,,0x002076E7,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206F6B then inline header free
+??1Rva00207724Map@@QAE@XZ,,0x00207724,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206F94 then inline header free
+??1Rva00207761Map@@QAE@XZ,,0x00207761,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206FBD then inline header free
+??1Rva0020779EMap@@QAE@XZ,,0x0020779E,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206FE6 then inline header free
