@@ -45166,3 +45166,5 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ?rva00206632@Rva002076AAMap@@QAEXPAUMapNode@@@Z,,0x00206632,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free
 ?rva0020669C@Rva00207724Map@@QAEXPAUMapNode@@@Z,,0x0020669C,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free
 ?rva002066D1@Rva00207761Map@@QAEXPAUMapNode@@@Z,,0x002066D1,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free
+??1Rva005CD0FEElem@@QAE@XZ,,0x005CD0FE,51,Code/GameEngine/Source/Common/OpaqueSmallDtors10.cpp,matched,cleanup 0x5CCFD1 in EH state 0 then rowed list base dtor at +8
+??1Rva0060D031Member@@QAE@XZ,,0x0060D031,57,Code/GameEngine/Source/Common/OpaqueSmallDtors10.cpp,matched,cleanup 0x60CFB6 in EH state 0 then free buffer at +4
