@@ -45154,3 +45154,15 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ??1Rva00207724Map@@QAE@XZ,,0x00207724,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206F94 then inline header free
 ??1Rva00207761Map@@QAE@XZ,,0x00207761,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206FBD then inline header free
 ??1Rva0020779EMap@@QAE@XZ,,0x0020779E,56,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,ScriptEngine map member dtor; clear 0x00206FE6 then inline header free
+?rva00206EC7@Rva002075F3Map@@QAEXXZ,,0x00206EC7,41,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree clear shape; erase from root via 0x00206593 then reset header
+?rva00206EF0@Rva00207630Map@@QAEXXZ,,0x00206EF0,41,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree clear shape; erase from root via 0x002065C8 then reset header
+?rva00206F19@Rva0020766DMap@@QAEXXZ,,0x00206F19,41,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree clear shape; erase from root via 0x002065FD then reset header
+?rva00206F42@Rva002076AAMap@@QAEXXZ,,0x00206F42,41,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree clear shape; erase from root via 0x00206632 then reset header
+?rva00206F94@Rva00207724Map@@QAEXXZ,,0x00206F94,41,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree clear shape; erase from root via 0x0020669C then reset header
+?rva00206FBD@Rva00207761Map@@QAEXXZ,,0x00206FBD,41,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree clear shape; erase from root via 0x002066D1 then reset header
+?rva00206593@Rva002075F3Map@@QAEXPAUMapNode@@@Z,,0x00206593,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free
+?rva002065C8@Rva00207630Map@@QAEXPAUMapNode@@@Z,,0x002065C8,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free
+?rva002065FD@Rva0020766DMap@@QAEXPAUMapNode@@@Z,,0x002065FD,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free
+?rva00206632@Rva002076AAMap@@QAEXPAUMapNode@@@Z,,0x00206632,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free
+?rva0020669C@Rva00207724Map@@QAEXPAUMapNode@@@Z,,0x0020669C,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free
+?rva002066D1@Rva00207761Map@@QAEXPAUMapNode@@@Z,,0x002066D1,53,Code/Libraries/Source/WWVegas/WWLib/Rva002075F3MapDtors.cpp,matched,STLport tree erase loop; value dtor 0x2046BB at node +0x10 then free

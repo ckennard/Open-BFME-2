@@ -14,7 +14,11 @@
 // empty, erase from the root (an out-of-line _M_erase per map, pinned at the
 // call target), then reset the header links and the node count. From retail,
 // clear -> erase: 0x00206EC7 -> 0x00206593, then clears every 0x29 bytes
-// and erases every 0x35.
+// and erases every 0x35. Six of the erases are the STLport _M_erase loop
+// (recurse right, keep left, destroy the +0x10 value through the shared
+// value dtor 0x002046BB, a jump to the rowed pair<const AsciiString,
+// AsciiString> dtor; free the node); the fifth and eighth maps' erases
+// destroy other value types and are rowed elsewhere.
 // Key and value types are not modelled; names are address-derived.
 
 void __cdecl free(void *block);
@@ -25,6 +29,16 @@ struct MapNode
 	MapNode *m_parent;
 	MapNode *m_left;
 	MapNode *m_right;
+};
+
+struct Rva002046BBValue
+{
+	~Rva002046BBValue();
+};
+
+struct MapValueNode : public MapNode
+{
+	Rva002046BBValue m_value;
 };
 
 struct MapHeaderHolder
@@ -38,7 +52,7 @@ struct MapHeaderHolder
 	}
 };
 
-#define RVA_MAP(map, clearRva, eraseRva) \
+#define RVA_MAP_CLASS(map, clearRva, eraseRva) \
 	class map : public MapHeaderHolder \
 	{ \
 	public: \
@@ -49,7 +63,10 @@ struct MapHeaderHolder
 	map::~map() \
 	{ \
 		clearRva(); \
-	} \
+	}
+
+#define RVA_MAP(map, clearRva, eraseRva) \
+	RVA_MAP_CLASS(map, clearRva, eraseRva) \
 	void map::clearRva() \
 	{ \
 		if (m_nodeCount != 0) \
@@ -62,11 +79,35 @@ struct MapHeaderHolder
 		} \
 	}
 
+#define RVA_MAP_ERASE(map, eraseRva) \
+	void map::eraseRva(MapNode *node) \
+	{ \
+		MapValueNode *cur = (MapValueNode *)node; \
+		while (cur != 0) \
+		{ \
+			eraseRva(cur->m_right); \
+			MapValueNode *next = (MapValueNode *)cur->m_left; \
+			cur->m_value.~Rva002046BBValue(); \
+			free(cur); \
+			cur = next; \
+		} \
+	}
+
+// The fifth and eighth maps' clears (0x00206F6B, 0x00206FE6) are already
+// rowed from Rva00206667Clear.cpp and Rva00206706Clear.cpp, so only their
+// destructors are defined here.
 RVA_MAP(Rva002075F3Map, rva00206EC7, rva00206593)
 RVA_MAP(Rva00207630Map, rva00206EF0, rva002065C8)
 RVA_MAP(Rva0020766DMap, rva00206F19, rva002065FD)
 RVA_MAP(Rva002076AAMap, rva00206F42, rva00206632)
-RVA_MAP(Rva002076E7Map, rva00206F6B, rva00206667)
+RVA_MAP_CLASS(Rva002076E7Map, rva00206F6B, rva00206667)
 RVA_MAP(Rva00207724Map, rva00206F94, rva0020669C)
 RVA_MAP(Rva00207761Map, rva00206FBD, rva002066D1)
-RVA_MAP(Rva0020779EMap, rva00206FE6, rva00206706)
+RVA_MAP_CLASS(Rva0020779EMap, rva00206FE6, rva00206706)
+
+RVA_MAP_ERASE(Rva002075F3Map, rva00206593)
+RVA_MAP_ERASE(Rva00207630Map, rva002065C8)
+RVA_MAP_ERASE(Rva0020766DMap, rva002065FD)
+RVA_MAP_ERASE(Rva002076AAMap, rva00206632)
+RVA_MAP_ERASE(Rva00207724Map, rva0020669C)
+RVA_MAP_ERASE(Rva00207761Map, rva002066D1)
