@@ -13,7 +13,9 @@
 // (ZH's BodyModuleInterface::attemptDamage); then the info goes to 0x00296065
 // when the flag is clear or the info's +0x40 float is positive; finally, if
 // the +0x84 object exists and has its +0x43C byte set, 0x0027295B is called
-// on it with the result of 0x00290FC9 on this. The status bit's name, the +0x28 field and
+// on it with the result of 0x00290FC9 on this. That call (0x0027295B,
+// 22 bytes) forwards the value to virtual slot 26 of the object held through
+// the holder at +0x14C, when there is one. The status bit's name, the +0x28 field and
 // the list's purpose are not proven; names are descriptive or address-derived.
 
 enum ObjectStatusTypes
@@ -52,13 +54,42 @@ public:
 	virtual void attemptDamage(DamageInfo *damageInfo);
 };
 
+class Rva0027295BListener
+{
+public:
+	virtual void slot00(); virtual void slot01(); virtual void slot02();
+	virtual void slot03(); virtual void slot04(); virtual void slot05();
+	virtual void slot06(); virtual void slot07(); virtual void slot08();
+	virtual void slot09(); virtual void slot10(); virtual void slot11();
+	virtual void slot12(); virtual void slot13(); virtual void slot14();
+	virtual void slot15(); virtual void slot16(); virtual void slot17();
+	virtual void slot18(); virtual void slot19(); virtual void slot20();
+	virtual void slot21(); virtual void slot22(); virtual void slot23();
+	virtual void slot24(); virtual void slot25();
+	virtual void notify(int value);
+};
+
+struct Rva0027295BHolder
+{
+	Rva0027295BListener *m_listener;
+};
+
 class Rva0027295BOwner
 {
 public:
 	void rva0027295B(int value);
-	char m_pad[0x43C];
+	char m_pad[0x14C];
+	Rva0027295BHolder *m_holder;
+	char m_pad150[0x43C - 0x150];
 	bool m_43C;
 };
+
+void Rva0027295BOwner::rva0027295B(int value)
+{
+	Rva0027295BHolder *holder = m_holder;
+	if (holder->m_listener != 0)
+		holder->m_listener->notify(value);
+}
 
 class Object
 {
