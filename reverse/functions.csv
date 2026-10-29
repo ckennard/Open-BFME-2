@@ -45115,3 +45115,9 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ??1Rva00102188@@UAE@XZ,,0x00102188,54,Code/GameEngine/Source/Common/OpaqueSmallDtors2.cpp,matched,opaque two-member dtor at existing pin; member dtor 0x000B0254 pinned
 ??1Rva00FF4D6@@UAE@XZ,,0x000FF4D6,55,Code/GameEngine/Source/Common/OpaqueSmallDtors2.cpp,matched,opaque member-call plus AsciiString dtor at existing pin; callee 0x000FF448 pinned
 ??1Rva00B9AC2@@UAE@XZ,,0x000B9AC2,61,Code/GameEngine/Source/Common/OpaqueSmallDtors2.cpp,matched,opaque tree-hint release plus AsciiString dtor at existing pin
+??1Rva00A86CE@@UAE@XZ,,0x000A86CE,64,Code/GameEngine/Source/Common/OpaqueSmallDtors3.cpp,matched,opaque member-unwind dtor at existing pin
+??1Rva00A897D@@UAE@XZ,,0x000A897D,68,Code/GameEngine/Source/Common/OpaqueSmallDtors3.cpp,matched,opaque member-unwind dtor over base 0x0073F4F3 at existing pin
+??1Rva002D0588@@UAE@XZ,,0x002D0588,71,Code/GameEngine/Source/Common/OpaqueSmallDtors3.cpp,matched,opaque SubsystemInterface-derived dtor at existing pin
+??1Rva004E3CD0@@UAE@XZ,,0x004E3CD0,72,Code/GameEngine/Source/Common/OpaqueSmallDtors3.cpp,matched,opaque cleanup-call plus member dtor at existing pin
+??1Rva005AFE3F@@UAE@XZ,,0x005AFE3F,71,Code/GameEngine/Source/Common/OpaqueSmallDtors3.cpp,matched,opaque unregister-plus-clear dtor at existing pin
+??1Rva0010F83E@@UAE@XZ,,0x0010F83E,53,Code/GameEngine/Source/Common/OpaqueSmallDtors3.cpp,matched,opaque AsciiString member plus base 0x001164F5 dtor at existing pin
