@@ -45170,3 +45170,4 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ??1Rva0060D031Member@@QAE@XZ,,0x0060D031,57,Code/GameEngine/Source/Common/OpaqueSmallDtors10.cpp,matched,cleanup 0x60CFB6 in EH state 0 then free buffer at +4
 ?rva005CCFD1@Rva005CD0FEElem@@QAEXXZ,,0x005CCFD1,34,Code/GameEngine/Source/Common/OpaqueSmallDtors10.cpp,matched,drain list at +8 from the back calling 0x5CCA57 on each element +4 pointer
 ?rva005CCEBE@Rva005CD0FEList@@QAEXXZ,,0x005CCEBE,23,Code/GameEngine/Source/Common/OpaqueSmallDtors10.cpp,matched,pop_back shape; erase 0x4F7731 on decremented end iterator
+?kill@Object@@QAEXW4DamageType@@W4DeathType@@@Z,,0x002984D4,67,Code/GameEngine/Source/GameLogic/Object/ObjectKill.cpp,matched,ZH/BFME1 Object::kill logic; DamageInfo ctor 0x263895 then attemptDamage 0x29848E
