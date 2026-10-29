@@ -45130,3 +45130,7 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ??1Rva006422F@@UAE@XZ,,0x0006422F,90,Code/GameEngine/Source/Common/OpaqueSmallDtors5.cpp,matched,opaque list-deleting ObjectModule-derived dtor at existing pin; cleanup callee 0x00063C48 pinned
 ??1Rva004EDCE9@@UAE@XZ,,0x004EDCE9,100,Code/GameEngine/Source/Common/OpaqueSmallDtors6.cpp,matched,opaque cleanup-plus-members dtor at existing pin; callee 0x004ED748 pinned
 ??1Rva009045E@@UAE@XZ,,0x0009045E,108,Code/GameEngine/Source/Common/OpaqueSmallDtors6.cpp,matched,opaque slot-release dtor over rowed base 0x0026201C at existing pin; callee 0x00090381 pinned
+??1Rva000E59D3@@UAE@XZ,,0x000E59D3,82,Code/GameEngine/Source/Common/OpaqueSmallDtors7.cpp,matched,opaque Snapshot-based dtor; texture ref and audio event members
+??1Rva000E9BAC@@UAE@XZ,,0x000E9BAC,99,Code/GameEngine/Source/Common/OpaqueSmallDtors7.cpp,matched,opaque dtor; 0x40 record array and member at 0x4FB60
+??1Rva00A8E0A@@UAE@XZ,,0x000A8E0A,111,Code/GameEngine/Source/Common/OpaqueSmallDtors7.cpp,matched,opaque SEH dtor vptr 0xBC93B0; audio notify then member dtors
+??1Rva006ED6F@@UAE@XZ,,0x0006ED6F,116,Code/GameEngine/Source/Common/OpaqueSmallDtors7.cpp,matched,opaque scene dtor; removes and releases render object at +0x114
