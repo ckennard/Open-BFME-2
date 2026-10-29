@@ -8,6 +8,11 @@
 //   0x005CCFD1 34B  that cleanup: until the list is empty, call 0x005CCA57
 //                   on the back element's +4 pointer, then 0x005CCEBE on the
 //                   list (removes the back node)
+//   0x005CCEBE 23B  that removal: the rowed list<Rva005F8F96>::erase
+//                   (0x004F7731) on an iterator to
+//                   the back node (STLport pop_back: decrement end(), pass
+//                   the copy-constructed iterator, result through a hidden
+//                   pointer)
 //   0x0060D031 57B  cleanup 0x0060CFB6 (the rowed FXList hashtable clear's
 //                   address), then free the buffer at +4 through the
 //                   C++-declared free
@@ -50,7 +55,22 @@ public:
 	bool empty() const { return m_node->m_next == m_node; }
 	Rva005F8F96 &back() { return m_node->m_prev->m_data; }
 	void rva005CCEBE();
+
+	struct Iterator
+	{
+		Iterator(Node *node) : m_node(node) {}
+		Iterator(const Iterator &other) : m_node(other.m_node) {}
+		Iterator &operator--() { m_node = m_node->m_prev; return *this; }
+		Node *m_node;
+	};
+	Iterator rva004F7731(Iterator position);
 };
+
+void Rva005CD0FEList::rva005CCEBE()
+{
+	Iterator last(m_node);
+	rva004F7731(--last);
+}
 
 struct Rva005CD0FEElem
 {
