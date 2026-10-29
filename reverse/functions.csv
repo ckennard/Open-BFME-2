@@ -45174,3 +45174,4 @@ _dup_008593A0,,0x0069A960,217,Code/GameEngine/Source/GameNetwork/GameSpy/peer/pe
 ?attemptDamage@Object@@QAEXPAVDamageInfo@@@Z,,0x0029848E,70,Code/GameEngine/Source/GameLogic/Object/ObjectAttemptDamage.cpp,matched,status 0x48 forces +0x28 to 1.0; positive queues copy on +0x440 list else handler 0x2975AC
 ?rva002975AC@Object@@AAEXPAVDamageInfo@@@Z,,0x002975AC,102,Code/GameEngine/Source/GameLogic/Object/ObjectAttemptDamage.cpp,matched,immediate damage path; body slot 0 unless flag then 0x296065 and owner notify
 ?rva0027295B@Rva0027295BOwner@@QAEXH@Z,,0x0027295B,22,Code/GameEngine/Source/GameLogic/Object/ObjectAttemptDamage.cpp,matched,forward value to virtual slot 26 of the listener in the +0x14C holder
+?getTeamAsAIGroup@Team@@QAEXPAVAIGroup@@@Z,,0x003A0F62,112,Code/GameEngine/Source/Common/RTS/TeamGetTeamAsAIGroup.cpp,matched,donor member walk adding filtered members to the group; filters read from retail

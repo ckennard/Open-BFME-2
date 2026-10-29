@@ -15,8 +15,12 @@
 // the +0x84 object exists and has its +0x43C byte set, 0x0027295B is called
 // on it with the result of 0x00290FC9 on this. That call (0x0027295B,
 // 22 bytes) forwards the value to virtual slot 26 of the object held through
-// the holder at +0x14C, when there is one. The status bit's name, the +0x28 field and
-// the list's purpose are not proven; names are descriptive or address-derived.
+// the holder at +0x14C, when there is one. The rowed 0x00272835 reads the
+// same +0x14C array as a Drawable method, so the +0x84 object is probably
+// the Drawable; that is not independently proven here.
+//
+// The status bit's name, the +0x28 field and the list's purpose are not
+// proven; names are descriptive or address-derived.
 
 enum ObjectStatusTypes
 {
